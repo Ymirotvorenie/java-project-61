@@ -1,0 +1,9 @@
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+# Ignore Gradle build output directory
+**/logs/
+.idea/
