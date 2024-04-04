@@ -9,3 +9,6 @@ https://asciinema.org/a/8stcVV6D5IKiOsZQRuXtUCsRx
 
 GCD Game
 https://asciinema.org/a/Gkxvr4Yfy7VJl8hocRlYf8IPC
+
+Progression Game
+https://asciinema.org/a/OTvlrOJrlcIaj7u1mwSikjgTO
