@@ -3,6 +3,7 @@ package hexlet.code;
 //import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
 
 import java.util.Scanner;
 
@@ -31,7 +32,6 @@ public class Engine {
         String answer = null;
         String correctAnswer = null;
         for (int i = 0; i < ROUNDS_COUNT; i++) {
-
             switch (choice) {
                 case 2:
                     int number = getRandNum();
@@ -42,6 +42,12 @@ public class Engine {
                     int a = getRandNum();
                     int b = getRandNum();
                     correctAnswer = String.valueOf(Calc.startGame(a, b));
+                    break;
+                case 4:
+                    int c = getRandNum();
+                    int d = getRandNum();
+                    System.out.print("Question: " + c + " " + d);
+                    correctAnswer = String.valueOf(GCD.startGame(c, d));
                     break;
                 default:
                     System.out.println("Error");
