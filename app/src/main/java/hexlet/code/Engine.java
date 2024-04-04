@@ -1,10 +1,10 @@
 package hexlet.code;
 
-//import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Scanner;
 
@@ -56,6 +56,12 @@ public class Engine {
                     correctAnswer = String.valueOf(Progression.startGame(arraySize, skipPosition,
                             progressionStep, startPosition));
                     break;
+                case 6:
+                    int num = getRandNum(0, 3571);
+                    System.out.print("Question: " + num);
+                    correctAnswer = Prime.startGame(num) ? "no" : "yes";
+                    break;
+
                 default:
                     System.out.println("Error");
                     return;
