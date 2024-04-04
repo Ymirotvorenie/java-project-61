@@ -4,16 +4,15 @@ package hexlet.code;
 import hexlet.code.games.Calc;
 import hexlet.code.games.Even;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS_COUNT = 3;
     private static String user;
-    public static int getRandNum() {
-        int start = 0;
-        int finish = 999;
-        return start + (int) (Math.random() * finish);
+    public static int getRandNum(int startNum, int endNum) {
+        return startNum + (int) (Math.random() * endNum);
     }
     public static String getUserInput() {
         Scanner s = new Scanner(System.in);
@@ -34,20 +33,28 @@ public class Engine {
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             switch (choice) {
                 case 2:
-                    int number = getRandNum();
+                    int number = getRandNum(0, 999);
                     System.out.print("Question: " + number);
                     correctAnswer = Even.startGame(number) ? "yes" : "no";
                     break;
                 case 3:
-                    int a = getRandNum();
-                    int b = getRandNum();
+                    int a = getRandNum(0, 999);
+                    int b = getRandNum(0, 999);
                     correctAnswer = String.valueOf(Calc.startGame(a, b));
                     break;
                 case 4:
-                    int c = getRandNum();
-                    int d = getRandNum();
+                    int c = getRandNum(0, 999);
+                    int d = getRandNum(0, 999);
                     System.out.print("Question: " + c + " " + d);
                     correctAnswer = String.valueOf(GCD.startGame(c, d));
+                    break;
+                case 5:
+                    int arraySize = getRandNum(5, 10);
+                    int skipPosition = getRandNum(0, arraySize - 1);
+                    int progressionStep = getRandNum(2, 15);
+                    int startPosition = getRandNum(0, 99);
+                    correctAnswer = String.valueOf(Progression.startGame(arraySize, skipPosition,
+                            progressionStep, startPosition));
                     break;
                 default:
                     System.out.println("Error");
