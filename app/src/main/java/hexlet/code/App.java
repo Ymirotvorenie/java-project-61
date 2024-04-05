@@ -25,7 +25,7 @@ public class App {
                 6 - Prime
                 0 - Exit""");
         if (s.hasNextInt()) {
-            choice = UserChoice.fromInteger(s.nextInt());
+            choice = UserChoice.values()[(s.nextInt())];
             switch (choice) {
                 case EXIT:
                     return;
