@@ -4,6 +4,7 @@ plugins {
     application
     distribution
     checkstyle
+    jacoco
 }
 application {
     mainClass = "hexlet.code.App"
