@@ -6,17 +6,17 @@ public class Calc {
     }
     private static char mathOperation = '+';
     public static void getRandOperation() {
-        final int start = 1;
-        final int finish = 3;
+        final int start = 0;
+        final int finish = 2;
         int result = start + (int) (Math.random() * finish);
         switch (result) {
-            case 1 :
+            case 0:
                 mathOperation = '+';
                 break;
-            case 2:
+            case 1:
                 mathOperation = '-';
                 break;
-            case 3:
+            case 2:
                 mathOperation = '*';
             default:
                 break;
@@ -24,7 +24,7 @@ public class Calc {
     }
     public static int startGame(int a, int b) {
         getRandOperation();
-        System.out.print("Question: " + String.valueOf(a) + " " + mathOperation + " " + String.valueOf(b));
+        System.out.print("Question: " + a + " " + mathOperation + " " + b);
         switch (mathOperation) {
             case '+': return a + b;
             case '-': return a - b;

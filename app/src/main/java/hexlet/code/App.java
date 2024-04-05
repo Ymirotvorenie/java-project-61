@@ -12,32 +12,39 @@ public class App {
     public static void main(String[] args) {
 
         Scanner s = new Scanner(System.in);
-        String user = null;
-        int choice = 1;
 
-        System.out.println("Please enter the game number and press Enter."
-                + "\n1 - Greet\n2 - Even\n3 - Calc\n4 - GCD\n5 - Progression\n6 - Prime\n0 - Exit");
+        UserChoice choice;
+
+        System.out.println("""
+                Please enter the game number and press Enter.
+                1 - Greet
+                2 - Even
+                3 - Calc
+                4 - GCD
+                5 - Progression
+                6 - Prime
+                0 - Exit""");
         if (s.hasNextInt()) {
-            choice = s.nextInt();
+            choice = UserChoice.fromInteger(s.nextInt());
             switch (choice) {
-                case 0:
+                case EXIT:
                     return;
-                case 1:
+                case GREET:
                     Engine.startGame("", UserChoice.GREET);
                     break;
-                case 2:
+                case EVEN:
                     Engine.startGame(Even.getQuestion(), UserChoice.EVEN);
                     break;
-                case 3:
+                case CALC:
                     Engine.startGame(Calc.getQuestion(), UserChoice.CALC);
                     break;
-                case 4:
+                case GCD:
                     Engine.startGame(GCD.getQuestion(), UserChoice.GCD);
                     break;
-                case 5:
+                case PROGRESSION:
                     Engine.startGame(Progression.getQuestion(), UserChoice.PROGRESSION);
                     break;
-                case 6:
+                case PRIME:
                     Engine.startGame(Prime.getQuestion(), UserChoice.PRIME);
                     break;
                 default:

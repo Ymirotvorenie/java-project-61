@@ -15,6 +15,7 @@ public class Engine {
     public static final int ROUNDS_COUNT = 3;
     public static final int MIN_PROGRESSION_STEP = 2;
     public static final int MAX_PROGRESSION_STEP = 22;
+    public static final int MAX_PRIME_NUMBER = 3571;
     public static int getRandNum(int startNum, int endNum) {
         return startNum + (int) (Math.random() * endNum);
     }
@@ -60,7 +61,7 @@ public class Engine {
                             progressionStep, startPosition));
                     break;
                 case PRIME:
-                    int num = getRandNum(0, 3571);
+                    int num = getRandNum(START, MAX_PRIME_NUMBER);
                     System.out.print("Question: " + num);
                     correctAnswer = Prime.startGame(num) ? "no" : "yes";
                     break;
