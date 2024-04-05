@@ -31,7 +31,7 @@ public class Progression {
                     question.append(startPosition + progressionStep * j).append(" ");
                 } else {
                     answer = startPosition + progressionStep * j;
-                    question.append(startPosition + progressionStep * j).append(" ");
+                    question.append(".. ");
                 }
             }
             gameData[i] = new String[] {question.toString(), String.valueOf(answer)};
