@@ -3,6 +3,10 @@
 
 [![GitHub Actions Demo](https://github.com/Ymirotvorenie/java-project-61/actions/workflows/github-actions-demo.yml/badge.svg)](https://github.com/Ymirotvorenie/java-project-61/actions/workflows/github-actions-demo.yml)
 
+<a href="https://codeclimate.com/github/Ymirotvorenie/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/3c72ccc2f1c80d008a89/maintainability" /></a>
+
+<a href="https://codeclimate.com/github/Ymirotvorenie/java-project-61/test_coverage"><img src="https://api.codeclimate.com/v1/badges/3c72ccc2f1c80d008a89/test_coverage" /></a>
+
 Even Game
 https://asciinema.org/a/oo3IRxq1FljkL9mnIejde1QWg
 
