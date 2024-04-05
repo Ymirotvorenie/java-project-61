@@ -48,7 +48,7 @@ public class Engine {
                     correctAnswer = String.valueOf(GCD.startGame(c, d));
                     break;
                 case 5:
-                    int arraySize = getRandNum(5, 10);
+                    int arraySize = getRandNum(8, 15);
                     int skipPosition = getRandNum(0, arraySize - 1);
                     int progressionStep = getRandNum(2, 15);
                     int startPosition = getRandNum(0, 99);

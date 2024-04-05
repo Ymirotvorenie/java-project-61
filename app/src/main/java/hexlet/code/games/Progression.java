@@ -10,7 +10,7 @@ public class Progression {
                 System.out.print(startPosition + progressionStep * i + " ");
             } else {
                 answer = startPosition + progressionStep * i;
-                System.out.print(".. ");
+                System.out.print("..");
             }
         }
         return answer;
