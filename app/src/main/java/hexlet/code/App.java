@@ -30,12 +30,16 @@ public class App {
                     break;
                 case 3:
                     Engine.startGame(Calc.question, choice);
+                    break;
                 case 4:
                     Engine.startGame(GCD.question, choice);
+                    break;
                 case 5:
                     Engine.startGame(Progression.question, choice);
+                    break;
                 case 6:
                     Engine.startGame(Prime.question, choice);
+                    break;
                 default:
                     break;
 
