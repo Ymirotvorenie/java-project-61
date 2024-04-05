@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUNDS_COUNT = 3;
-    private static String user;
     public static int getRandNum(int startNum, int endNum) {
         return startNum + (int) (Math.random() * endNum);
     }
@@ -20,7 +19,7 @@ public class Engine {
     }
     public static void startGame(String question, int choice) {
         System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
-        user = getUserInput();
+        String user = getUserInput();
         System.out.println("Hello, " + user + "!");
         if (choice == 1) {
             return;
