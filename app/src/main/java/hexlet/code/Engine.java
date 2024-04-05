@@ -1,81 +1,33 @@
 package hexlet.code;
 
-import hexlet.code.games.Calc;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
-
 import java.util.Scanner;
 
 public class Engine {
-    public static final int START = 0;
-    public static final int FINISH = 999;
-    public static final int PROGRESSION_SIZE = 12;
     public static final int ROUNDS_COUNT = 3;
-    public static final int MIN_PROGRESSION_STEP = 2;
-    public static final int MAX_PROGRESSION_STEP = 22;
-    public static final int MAX_PRIME_NUMBER = 3571;
-    public static int getRandNum(int startNum, int endNum) {
-        return startNum + (int) (Math.random() * endNum);
-    }
-    public static String getUserInput() {
-        Scanner s = new Scanner(System.in);
-        return s.nextLine();
-    }
-    public static void startGame(String question, UserChoice choice) {
+    public static final int QUESTION_PARTS = 2;
+    public static final int QUESTION_INDEX = 0;
+    public static final int ANSWER_INDEX = 1;
+    private static String user = null;
+    public static void greet() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
-        String user = getUserInput();
+        user = sc.nextLine();
         System.out.println("Hello, " + user + "!");
-        if (choice == UserChoice.GREET) {
-            return;
-        }
-        System.out.println(question);
-        Scanner s = new Scanner(System.in);
+    }
+    public static void action(String task, String[][] gameData) {
+        greet();
+        Scanner scn = new Scanner(System.in);
+        System.out.println(task);
+        for (String[]roundData : gameData) {
+            System.out.println("Question: " + roundData[QUESTION_INDEX]);
+            System.out.print("Your answer: ");
+            String answer = scn.nextLine();
 
-        String answer = null;
-        String correctAnswer = null;
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            switch (choice) {
-                case EVEN:
-                    int number = getRandNum(START, FINISH);
-                    System.out.print("Question: " + number);
-                    correctAnswer = Even.startGame(number) ? "yes" : "no";
-                    break;
-                case CALC:
-                    int a = getRandNum(START, FINISH);
-                    int b = getRandNum(START, FINISH);
-                    correctAnswer = String.valueOf(Calc.startGame(a, b));
-                    break;
-                case GCD:
-                    int c = getRandNum(START, FINISH);
-                    int d = getRandNum(START, FINISH);
-                    System.out.print("Question: " + c + " " + d);
-                    correctAnswer = String.valueOf(GCD.startGame(c, d));
-                    break;
-                case PROGRESSION:
-                    int skipPosition = getRandNum(START, PROGRESSION_SIZE - 1);
-                    int progressionStep = getRandNum(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
-                    int startPosition = getRandNum(START, FINISH);
-                    correctAnswer = String.valueOf(Progression.startGame(PROGRESSION_SIZE, skipPosition,
-                            progressionStep, startPosition));
-                    break;
-                case PRIME:
-                    int num = getRandNum(START, MAX_PRIME_NUMBER);
-                    System.out.print("Question: " + num);
-                    correctAnswer = Prime.startGame(num) ? "no" : "yes";
-                    break;
-
-                default:
-                    System.out.println("Error");
-                    return;
-            }
-            System.out.print("\nYour answer: ");
-            answer = s.nextLine();
-            if (answer.equals(correctAnswer)) {
+            if (answer.equals(roundData[ANSWER_INDEX])) {
                 System.out.println("Correct!");
             } else {
-                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'.");
+                System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '"
+                        + roundData[ANSWER_INDEX] + "'.");
                 System.out.println("Let's try again, " + user + "!");
                 return;
             }

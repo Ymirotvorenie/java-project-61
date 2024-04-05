@@ -30,22 +30,22 @@ public class App {
                 case EXIT:
                     return;
                 case GREET:
-                    Engine.startGame("", UserChoice.GREET);
+                    Engine.greet();
                     break;
                 case EVEN:
-                    Engine.startGame(Even.getQuestion(), UserChoice.EVEN);
+                    Engine.action(Even.getTask(), Even.getGameResult());
                     break;
                 case CALC:
-                    Engine.startGame(Calc.getQuestion(), UserChoice.CALC);
+                    Engine.action(Calc.getTask(), Calc.getGameResult());
                     break;
                 case GCD:
-                    Engine.startGame(GCD.getQuestion(), UserChoice.GCD);
+                    Engine.action(GCD.getTask(), GCD.getGameResult());
                     break;
                 case PROGRESSION:
-                    Engine.startGame(Progression.getQuestion(), UserChoice.PROGRESSION);
+                    Engine.action(Progression.getTask(), Progression.getGameResult());
                     break;
                 case PRIME:
-                    Engine.startGame(Prime.getQuestion(), UserChoice.PRIME);
+                    Engine.action(Prime.getTask(), Prime.getGameResult());
                     break;
                 default:
                     break;
