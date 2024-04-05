@@ -1,7 +1,9 @@
 package hexlet.code.games;
 
 public class Progression {
-    public static String question = "What number is missing in the progression?";
+    public static String getQuestion() {
+        return "What number is missing in the progression?";
+    }
 
     public static int startGame(int arraySize, int skipPosition, int progressionStep, int startPosition) {
         int answer = 0;

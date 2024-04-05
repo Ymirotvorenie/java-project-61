@@ -1,11 +1,13 @@
 package hexlet.code.games;
 
 public class Calc {
-    public static String question = "What is the result of the expression?";
+    public static String getQuestion() {
+        return "What is the result of the expression?";
+    }
     private static char mathOperation = '+';
     public static void getRandOperation() {
-        int start = 1;
-        int finish = 3;
+        final int start = 1;
+        final int finish = 3;
         int result = start + (int) (Math.random() * finish);
         switch (result) {
             case 1 :

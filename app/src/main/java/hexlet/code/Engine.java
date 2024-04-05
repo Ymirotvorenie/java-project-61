@@ -9,7 +9,12 @@ import hexlet.code.games.Prime;
 import java.util.Scanner;
 
 public class Engine {
+    public static final int START = 0;
+    public static final int FINISH = 999;
+    public static final int PROGRESSION_SIZE = 12;
     public static final int ROUNDS_COUNT = 3;
+    public static final int MIN_PROGRESSION_STEP = 2;
+    public static final int MAX_PROGRESSION_STEP = 22;
     public static int getRandNum(int startNum, int endNum) {
         return startNum + (int) (Math.random() * endNum);
     }
@@ -17,11 +22,11 @@ public class Engine {
         Scanner s = new Scanner(System.in);
         return s.nextLine();
     }
-    public static void startGame(String question, int choice) {
+    public static void startGame(String question, UserChoice choice) {
         System.out.print("Welcome to the Brain Games!\nMay I have your name? ");
         String user = getUserInput();
         System.out.println("Hello, " + user + "!");
-        if (choice == 1) {
+        if (choice == UserChoice.GREET) {
             return;
         }
         System.out.println(question);
@@ -31,31 +36,30 @@ public class Engine {
         String correctAnswer = null;
         for (int i = 0; i < ROUNDS_COUNT; i++) {
             switch (choice) {
-                case 2:
-                    int number = getRandNum(0, 999);
+                case EVEN:
+                    int number = getRandNum(START, FINISH);
                     System.out.print("Question: " + number);
                     correctAnswer = Even.startGame(number) ? "yes" : "no";
                     break;
-                case 3:
-                    int a = getRandNum(0, 999);
-                    int b = getRandNum(0, 999);
+                case CALC:
+                    int a = getRandNum(START, FINISH);
+                    int b = getRandNum(START, FINISH);
                     correctAnswer = String.valueOf(Calc.startGame(a, b));
                     break;
-                case 4:
-                    int c = getRandNum(0, 999);
-                    int d = getRandNum(0, 999);
+                case GCD:
+                    int c = getRandNum(START, FINISH);
+                    int d = getRandNum(START, FINISH);
                     System.out.print("Question: " + c + " " + d);
                     correctAnswer = String.valueOf(GCD.startGame(c, d));
                     break;
-                case 5:
-                    int arraySize = getRandNum(8, 12);
-                    int skipPosition = getRandNum(0, arraySize - 1);
-                    int progressionStep = getRandNum(2, 15);
-                    int startPosition = getRandNum(0, 99);
-                    correctAnswer = String.valueOf(Progression.startGame(arraySize, skipPosition,
+                case PROGRESSION:
+                    int skipPosition = getRandNum(START, PROGRESSION_SIZE - 1);
+                    int progressionStep = getRandNum(MIN_PROGRESSION_STEP, MAX_PROGRESSION_STEP);
+                    int startPosition = getRandNum(START, FINISH);
+                    correctAnswer = String.valueOf(Progression.startGame(PROGRESSION_SIZE, skipPosition,
                             progressionStep, startPosition));
                     break;
-                case 6:
+                case PRIME:
                     int num = getRandNum(0, 3571);
                     System.out.print("Question: " + num);
                     correctAnswer = Prime.startGame(num) ? "no" : "yes";

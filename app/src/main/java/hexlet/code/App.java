@@ -23,22 +23,22 @@ public class App {
                 case 0:
                     return;
                 case 1:
-                    Engine.startGame("", choice);
+                    Engine.startGame("", UserChoice.GREET);
                     break;
                 case 2:
-                    Engine.startGame(Even.question, choice);
+                    Engine.startGame(Even.getQuestion(), UserChoice.EVEN);
                     break;
                 case 3:
-                    Engine.startGame(Calc.question, choice);
+                    Engine.startGame(Calc.getQuestion(), UserChoice.CALC);
                     break;
                 case 4:
-                    Engine.startGame(GCD.question, choice);
+                    Engine.startGame(GCD.getQuestion(), UserChoice.GCD);
                     break;
                 case 5:
-                    Engine.startGame(Progression.question, choice);
+                    Engine.startGame(Progression.getQuestion(), UserChoice.PROGRESSION);
                     break;
                 case 6:
-                    Engine.startGame(Prime.question, choice);
+                    Engine.startGame(Prime.getQuestion(), UserChoice.PRIME);
                     break;
                 default:
                     break;
