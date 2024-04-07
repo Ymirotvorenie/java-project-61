@@ -6,7 +6,6 @@ import hexlet.code.Random;
 public class Calc {
     private static final int MIN = 0;
     private static final int MAX_NUM = 200;
-    private static final int MAX_OPERATOR = 2;
     private static final char[] OPERATORS = {'+', '-', '*'};
     public static String getTask() {
         return "What is the result of the expression?";
@@ -16,24 +15,10 @@ public class Calc {
         for (int i = 0; i < gameData.length; i++) {
             int number1 = Random.getRandNum(MIN, MAX_NUM);
             int number2 = Random.getRandNum(MIN, MAX_NUM);
-            char operator = OPERATORS[Random.getRandNum(MIN, MAX_OPERATOR)];
-
-            int result = 0;
+            char operator = OPERATORS[Random.getRandNum(MIN, OPERATORS.length)];
 
             String question = number1 + " " + operator + " " + number2;
-            switch (operator) {
-                case '+':
-                    result = number1 + number2;
-                    break;
-                case '-':
-                    result = number1 - number2;
-                    break;
-                case '*':
-                    result = number1 * number2;
-                    break;
-                default:
-                    break;
-            }
+            int result = GamesUtils.calculate(operator, number1, number2);
             gameData[i] = new String[] {question, String.valueOf(result)};
         }
         return gameData;

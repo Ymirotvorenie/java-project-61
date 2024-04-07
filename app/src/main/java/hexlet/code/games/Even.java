@@ -15,7 +15,7 @@ public class Even {
         for (int i = 0; i < gameData.length; i++) {
             int number = Random.getRandNum(MIN_NUM, MAX_NUM);
             String question = String.valueOf(number);
-            String answer = number % 2 == 0 ? "yes" : "no";
+            String answer = GamesUtils.isEven(number) ? "yes" : "no";
 
             gameData[i] = new String[]{question, answer};
         }

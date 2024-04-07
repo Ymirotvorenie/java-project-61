@@ -48,7 +48,7 @@ public class App {
                     Engine.action(Prime.getTask(), Prime.getGameResult());
                     break;
                 default:
-                    break;
+                    throw new RuntimeException("Enter game number!");
 
             }
         } else {

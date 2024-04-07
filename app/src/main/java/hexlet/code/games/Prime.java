@@ -12,15 +12,8 @@ public class Prime {
     public static String[][] getGameResult() {
         String[][] gameData = new String[Engine.ROUNDS_COUNT][Engine.QUESTION_PARTS];
         for (int i = 0; i < gameData.length; i++) {
-
             int number = Random.getRandNum(MIN_NUM, MAX_NUM);
-            String answer = "yes";
-            for (int j = 2; j <= number / 2; ++j) {
-                if (number % j == 0) {
-                    answer = "no";
-                    break;
-                }
-            }
+            String answer = GamesUtils.isPrime(number) ? "yes" : "no";
             gameData[i] = new String[]{String.valueOf(number), answer};
         }
         return gameData;
