@@ -15,7 +15,7 @@ public class Calc {
         for (int i = 0; i < gameData.length; i++) {
             int number1 = Random.getRandNum(MIN, MAX_NUM);
             int number2 = Random.getRandNum(MIN, MAX_NUM);
-            char operator = OPERATORS[Random.getRandNum(MIN, OPERATORS.length)];
+            char operator = OPERATORS[Random.getRandNum(MIN, OPERATORS.length - 1)];
 
             String question = number1 + " " + operator + " " + number2;
             int result = GamesUtils.calculate(operator, number1, number2);
