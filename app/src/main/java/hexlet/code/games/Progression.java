@@ -11,32 +11,38 @@ public class Progression {
     private static final int MIN_START = 0;
     private static final int MAX_START = 500;
     private static final int MIN_SKIP = 0;
-
-    public static String getTask() {
-        return "What number is missing in the progression?";
-    }
-
-    public static String[][] getGameResult() {
-        String[][] gameData = new String[Engine.ROUNDS_COUNT][Engine.QUESTION_PARTS];
-
-        for (int i = 0; i < gameData.length; i++) {
-            int progressionSize = Random.getRandNum(MIN_SIZE, MAX_SIZE);
-            int progressionStep = Random.getRandNum(MIN_STEP, MAX_STEP);
-            int startPosition = Random.getRandNum(MIN_START, MAX_START);
-            int skipPosition = Random.getRandNum(MIN_SKIP, progressionSize - 1);
-            StringBuilder question = new StringBuilder();
-            int answer = 0;
-            for (int j = 0; j < progressionSize; j++) {
-                if (j != skipPosition) {
-                    question.append(startPosition + progressionStep * j).append(" ");
-                } else {
-                    answer = startPosition + progressionStep * j;
-                    question.append(".. ");
-                }
-            }
-            gameData[i] = new String[] {question.toString(), String.valueOf(answer)};
+    public static final String TASK = "What number is missing in the progression?";
+    public static int[] generateProgression(int size, int start, int step) {
+        int[] progression = new int[size];
+        for (int i = 0; i < size; i++) {
+            progression[i] = (start + step * i);
         }
-        return gameData;
+        return progression;
+    }
+    public static String[] getRoundResult() {
+        int progressionSize = Random.getRandNum(MIN_SIZE, MAX_SIZE);
+        int progressionStep = Random.getRandNum(MIN_STEP, MAX_STEP);
+        int startPosition = Random.getRandNum(MIN_START, MAX_START);
+        int skipPosition = Random.getRandNum(MIN_SKIP, progressionSize - 1);
+        int[] progression = generateProgression(progressionSize, startPosition, progressionStep);
+        StringBuilder question = new StringBuilder();
+        int answer = 0;
+        for (int number : progression) {
+            if (number != skipPosition) {
+                question.append(number).append(" ");
+            } else {
+                answer = number;
+                question.append(".. ");
+            }
+        }
+        return new String[]{question.toString(), String.valueOf(answer)};
+    }
+    public static void startGame() {
+        String[][] gameData = new String[Engine.ROUNDS_COUNT][Engine.QUESTION_PARTS];
+        for (int i = 0; i < gameData.length; i++) {
+            gameData[i] = getRoundResult();
+        }
+        Engine.action(TASK, gameData);
     }
 }
 

@@ -6,19 +6,21 @@ import hexlet.code.Random;
 public class Even {
     private static final int MIN_NUM = 0;
     private static final int MAX_NUM = 999;
-    public static String getTask() {
-        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static final String TASK = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
     }
+    public static String[] getRoundResult() {
+        int number = Random.getRandNum(MIN_NUM, MAX_NUM);
+        String question = String.valueOf(number);
 
-    public static String[][] getGameResult() {
+        return new String[]{question, isEven(number) ? "yes" : "no"};
+    }
+    public static void startGame() {
         String[][] gameData = new String[Engine.ROUNDS_COUNT][Engine.QUESTION_PARTS];
         for (int i = 0; i < gameData.length; i++) {
-            int number = Random.getRandNum(MIN_NUM, MAX_NUM);
-            String question = String.valueOf(number);
-            String answer = GamesUtils.isEven(number) ? "yes" : "no";
-
-            gameData[i] = new String[]{question, answer};
+            gameData[i] = getRoundResult();
         }
-        return gameData;
+        Engine.action(TASK, gameData);
     }
 }
