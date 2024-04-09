@@ -27,11 +27,11 @@ public class Progression {
         int[] progression = generateProgression(progressionSize, startPosition, progressionStep);
         StringBuilder question = new StringBuilder();
         int answer = 0;
-        for (int number : progression) {
-            if (number != skipPosition) {
-                question.append(number).append(" ");
+        for (int i = 0; i < progressionSize; i ++) {
+            if (i != skipPosition) {
+                question.append(progression[i]).append(" ");
             } else {
-                answer = number;
+                answer = progression[i];
                 question.append(".. ");
             }
         }
