@@ -15,6 +15,7 @@ public class Engine {
         System.out.println("Hello, " + user + "!");
 
         System.out.println(task);
+
         for (String[]roundData : gameData) {
             System.out.println("Question: " + roundData[QUESTION_INDEX]);
             System.out.print("Your answer: ");

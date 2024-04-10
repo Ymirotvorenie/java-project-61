@@ -7,5 +7,5 @@ public enum UserChoice {
     CALC,
     GCD,
     PROGRESSION,
-    PRIME;
+    PRIME
 }
