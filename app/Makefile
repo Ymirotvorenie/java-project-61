@@ -1,26 +1,25 @@
 setup:
-	make -C app setup
+	./gradlew wrapper --gradle-version 8.4
 
 clean:
-	make -C app clean
+	./gradlew clean
 
 build:
-	make -C app build
+	./gradlew clean build
 
 install:
-	make -C app install
+	./gradlew clean installDist
 
 run-dist:
-	make -C app run-dist
+	@./build/install/app/bin/app
 
 run:
-	make -C app run
+	./gradlew run
 
 lint:
-	make -C app lint
+	./gradlew checkstyleMain
 
 check-updates:
-	make -C app check-updates
-
+	./gradlew dependencyUpdates
 
 .PHONY: build
